@@ -594,7 +594,7 @@ Contributions are welcome! Please:
 
 ## Contact
 
-For questions or issues, please open a GitHub issue or contact [your.email@institution.edu]
+For questions or issues, please open a GitHub issue or contact [mannan.bhola@northwestern.edu]
 
 ---
 
