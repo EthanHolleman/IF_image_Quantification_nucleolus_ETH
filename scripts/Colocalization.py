@@ -206,12 +206,23 @@ def get_CoLoc(
         nuc_overlay = overlay_labels(dapi_n, nuc_lab)
         ncl_overlay = overlay_labels(npm1_n, npm1_lab)
 
-        skio.imsave(os.path.join(out_base_dir, "nuclei_overlay.png"), nuc_overlay)
-        skio.imsave(os.path.join(out_base_dir, "nucleoli_overlay.png"), ncl_overlay)
+        print("IMSAVE")
+        print(nuc_overlay)
+
+        skio.imsave(
+            os.path.join(out_base_dir, "nuclei_overlay.png"),
+            (np.clip(nuc_overlay, 0, 1) * 255).astype(np.uint8),
+            check_contrast=False,
+        )
+        skio.imsave(
+            os.path.join(out_base_dir, "nucleoli_overlay.png"),
+            (np.clip(ncl_overlay, 0, 1) * 255).astype(np.uint8),
+            check_contrast=False,
+        )
 
         # save labels as tiffs too if desired
-        _save_label_tiff(os.path.join(out_base_dir, "nuclei_labels.tif"), nuc_lab)
-        _save_label_tiff(os.path.join(out_base_dir, "nucleoli_labels.tif"), npm1_lab)
+        _save_label_tiff(nuc_lab, os.path.join(out_base_dir, "nuclei_labels.tif"))
+        _save_label_tiff(npm1_lab, os.path.join(out_base_dir, "nucleoli_labels.tif"))
 
     if verbose:
         print(f"[ok] wrote: {df_path} (n={len(df)})")
