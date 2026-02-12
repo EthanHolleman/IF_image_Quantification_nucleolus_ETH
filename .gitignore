@@ -1,0 +1,5 @@
+output_data/
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+coloc_test_script2/

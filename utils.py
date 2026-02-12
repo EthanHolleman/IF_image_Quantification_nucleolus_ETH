@@ -14,6 +14,7 @@ from stardist.models import StarDist2D
 
 # helpers 
 def normalize01(a):
+    print(a, 'I AM PRINTING FROM NORMALIZEO! CAN YOU SEE ME?')
     a = a.astype(np.float32)
     mn, mx = float(np.nanmin(a)), float(np.nanmax(a))
     if mx <= mn:
@@ -49,7 +50,9 @@ def _ensure_dir(p):
     os.makedirs(p, exist_ok=True)
     return p
 
-def _save_gray(img, path):
+def _save_gray(path, img):
+    print(img, 'I AM PRINTING FROM SAVE_GRAY! CAN YOU SEE ME?')
+    print(path, 'I AM THE PATH IN SAVE_GRAY, CAN YOU SEE ME?')
     skio.imsave(path, (normalize01(img) * 255).astype(np.uint8), check_contrast=False)
 
 def _save_label_tiff(lbl, path):
