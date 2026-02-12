@@ -198,9 +198,9 @@ def get_CoLoc(
 
     # ------------------- save intermediates / overlays -------------------
     if save_intermediates:
-        _save_gray(os.path.join(out_base_dir, "DAPI_norm.png"), dapi_n)
-        _save_gray(os.path.join(out_base_dir, "NPM1_norm.png"), npm1_n)
-        _save_gray(os.path.join(out_base_dir, f"{nucleolar_component}_norm.png"), nc_n)
+        _save_gray(dapi_n, os.path.join(out_base_dir, "DAPI_norm.png"))
+        _save_gray(npm1_n, os.path.join(out_base_dir, "NPM1_norm.png"))
+        _save_gray(nc_n, os.path.join(out_base_dir, f"{nucleolar_component}_norm.png"))
 
         # label overlays for quick sanity check
         nuc_overlay = overlay_labels(dapi_n, nuc_lab)
